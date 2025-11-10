@@ -41,6 +41,6 @@ async def on_message(message):
 
 @bot.command()
 async def help(ctx):
-    await ctx.send("!help is in maintainence, cannot use for now 💀💀💀☠️☠️☠️")
+    await ctx.send("&help is in maintainence, cannot use for now 💀💀💀☠️☠️☠️")
 
 bot.run(token)
