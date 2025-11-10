@@ -1,6 +1,6 @@
 import discord
 from discord.ext import commands, tasks
-from dot_env import load_dotenv
+from dotenv import load_dotenv
 import os
 
 load_dotenv()
