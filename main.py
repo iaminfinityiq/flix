@@ -21,7 +21,7 @@ async def on_ready():
 @bot.event
 async def on_member_join(member):
     general = bot.get_channel(general_id)
-    general.send(f"Greetings, {member.mention}! Welcome to Fluentix. Come here and chat with us")
+    await general.send(f"Greetings, {member.mention}! Welcome to Fluentix. Come here and chat with us")
 
 @tasks.loop(seconds=1)
 async def bot_loop():
@@ -39,6 +39,6 @@ async def on_message(message):
 
     await bot.process_commands(message)
 
-@bot.command()
-async def help(ctx):
+@bot.command(name="help")
+async def PLEASE_help_IBEGYOU(ctx):
     await ctx.send("!help is in maintainence, cannot use for now 💀💀💀☠️☠️☠️")
