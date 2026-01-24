@@ -37,6 +37,10 @@ async def on_message(message):
     if message.author == bot.user:
         return
 
+    if "💋" in message.content:
+        await message.author.send(f"Ew, why did you kiss me {message.author.mention}. You feel good when kissing metal or something?")
+        return
+        
     await bot.process_commands(message)
 
 @bot.command()
