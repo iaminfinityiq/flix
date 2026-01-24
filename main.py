@@ -38,7 +38,7 @@ async def on_message(message):
         return
 
     if "💋" in message.content:
-        await message.author.send(f"Ew, why did you kiss me {message.author.mention}. You feel good when kissing metal or something?")
+        await message.author.send(f"I want to be your girlfriend uwu {message.author.mention}")
         return
         
     await bot.process_commands(message)
