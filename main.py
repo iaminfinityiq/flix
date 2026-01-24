@@ -39,7 +39,6 @@ async def on_message(message):
 
     if "💋" in message.content:
         await message.author.send(f"I want to be your girlfriend uwu {message.author.mention}")
-        return
         
     await bot.process_commands(message)
 
