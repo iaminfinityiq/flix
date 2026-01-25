@@ -46,4 +46,9 @@ async def on_message(message):
 async def help(ctx):
     await ctx.send("&help is in maintainence, cannot use for now 💀💀💀☠️☠️☠️")
 
+@bot.command()
+async def spam(ctx, amount: int, *, message: str):
+    for i in range(amount):
+        await ctx.send(message)
+
 bot.run(token)
