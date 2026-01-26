@@ -43,8 +43,19 @@ async def on_message(message):
     await bot.process_commands(message)
 
 @bot.command()
-async def help(ctx):
-    await ctx.send("&help is in maintainence, cannot use for now 💀💀💀☠️☠️☠️")
+async def help(ctx, *, command: str):
+    new_command = command.strip().lower()
+    match new_command:
+        case "":
+            await ctx.send("""**List of all commands in Flix**
+`&help`: Shows all command. If you want a specific command, do `&help <command_name>`
+`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in #spam""")
+        case "help":
+            await ctx.send("`&help`: Shows all command")
+        case "spam":
+            await ctx.send("`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in #spam")
+        case _:
+            await ctx.send("Invalid command, please use `&help` for a list of commands")
 
 @bot.command()
 async def spam(ctx, amount: int, *, message: str):
