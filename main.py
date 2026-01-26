@@ -43,7 +43,7 @@ async def on_message(message):
     await bot.process_commands(message)
 
 @bot.command()
-async def help(ctx, *, command: str):
+async def help(ctx, *, command: str = ""):
     new_command = command.strip().lower()
     match new_command:
         case "":
@@ -51,7 +51,7 @@ async def help(ctx, *, command: str):
 `&help`: Shows all command. If you want a specific command, do `&help <command_name>`
 `&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in #spam""")
         case "help":
-            await ctx.send("`&help`: Shows all command")
+            await ctx.send("`&help`: Shows all command. If you want a specific command, do `&help <command_name>`")
         case "spam":
             await ctx.send("`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in #spam")
         case _:
