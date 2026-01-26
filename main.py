@@ -6,6 +6,7 @@ import os
 load_dotenv()
 token = os.getenv("DISCORD_TOKEN")
 general_id = int(os.getenv("GENERAL_ID"))
+spam_id = int(os.getenv("SPAM_ID"))
 
 intents = discord.Intents.default()
 intents.message_content = True
@@ -45,15 +46,17 @@ async def on_message(message):
 @bot.command()
 async def help(ctx, *, command: str = ""):
     new_command = command.strip().lower()
+
+    spam = bot.get_channel(spam_id)
     match new_command:
         case "":
-            await ctx.send("""**List of all commands in Flix**
+            await ctx.send(f"""**List of all commands in Flix**
 `&help`: Shows all command. If you want a specific command, do `&help <command_name>`
-`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in #spam""")
+`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in {spam.mention}""")
         case "help":
             await ctx.send("`&help`: Shows all command. If you want a specific command, do `&help <command_name>`")
         case "spam":
-            await ctx.send("`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in #spam")
+            await ctx.send(f"`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in {spam.mention}")
         case _:
             await ctx.send("Invalid command, please use `&help` for a list of commands")
 
