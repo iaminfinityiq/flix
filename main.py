@@ -51,18 +51,18 @@ async def help(ctx, *, command: str = ""):
     match new_command:
         case "":
             await ctx.send(f"""**List of all commands in Flix**
-`&help`: Shows all command. If you want a specific command, do `&help <command_name>`
-`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in {spam.mention}""")
+`&help`: Shows all command. If you want a specific command, do `&help <command_name>`""")
+# `&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in {spam.mention}""")
         case "help":
             await ctx.send("`&help`: Shows all command. If you want a specific command, do `&help <command_name>`")
-        case "spam":
-            await ctx.send(f"`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in {spam.mention}")
+        # case "spam":
+        #     await ctx.send(f"`&spam`: Spam something for an amount of time. Syntax: `&spam <amount> <message>`. Note that only use this in {spam.mention}")
         case _:
             await ctx.send("Invalid command, please use `&help` for a list of commands")
 
-@bot.command()
-async def spam(ctx, amount: int, *, message: str):
-    for i in range(amount):
-        await ctx.send(message)
+# @bot.command()
+# async def spam(ctx, amount: int, *, message: str):
+#     for i in range(amount):
+#         await ctx.send(message)
 
 bot.run(token)
